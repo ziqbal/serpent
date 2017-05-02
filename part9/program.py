@@ -6,8 +6,7 @@ import random
 
 # Coordinates for serpent and pie
 serpent = [ [ 1 , 1 ] ]
-piex = 19
-piey = 14
+pie = [ 19 , 14 ]
 
 # Serpent direction
 dirx = 1
@@ -76,17 +75,16 @@ def loop( ) :
 def draw( ) :
     for part in serpent :
         pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( part[0] * 40 , part[1] * 40 ) , 20 , 0 )
-    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( piex * 40 , piey * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[0] * 40 , pie[1] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :
-    global serpent
-    global piex , piey
+    global serpent , pie
 
-    head = serpent[0]
+    head = serpent[ 0 ]
 
-    serpentx = head[0] + dirx
-    serpenty = head[1] + diry
+    serpentx = head[ 0 ] + dirx
+    serpenty = head[ 1 ] + diry
 
     # Clamp serpent
     if serpentx > 19 : serpentx = 19
@@ -94,16 +92,15 @@ def update( ) :
     if serpenty > 14 : serpenty = 14
     if serpenty < 1 : serpenty = 1
 
-    # Check if serpent is same place as the pie
-    if serpentx == piex and serpenty == piey :
-        piex = random.randint( 1 , 19 )
-        piey = random.randint( 1 , 14 )
-    else:
-        serpent.pop( )
-
     head = [ serpentx , serpenty ]
 
     serpent.insert( 0 , head )
+
+    # Check if serpent is same place as the pie
+    if head == pie :
+        pie = [ random.randint( 1 , 19 ) , random.randint( 1 , 14 ) ]
+    else:
+        serpent.pop( )
 
 # Change serpent direction to parameters
 def changedirection( dx , dy ) :
