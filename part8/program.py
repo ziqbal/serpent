@@ -73,16 +73,16 @@ def loop( ) :
 # Draw everything onto the screen
 def draw( ) :
     pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpentx * 40 , serpentx * 40 ) , 20 , 0 )
-    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[0] * 40 , pie[1] * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[ 0 ] * 40 , pie[ 1 ] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :
     global serpent , pie
 
-    head = serpent[0]
+    head = serpent[ 0 ]
 
-    serpentx = head[0] + direction[0]
-    serpenty = head[1] + direction[1]
+    serpentx = head[ 0 ] + direction[ 0 ]
+    serpenty = head[ 1 ] + direction[ 1 ]
 
     # Clamp serpent
     if serpentx > 19 : serpentx = 19
@@ -90,12 +90,12 @@ def update( ) :
     if serpenty > 14 : serpenty = 14
     if serpenty < 1 : serpenty = 1
 
-    # Check if serpent is same place as teh pie
-    if serpentx == pie[0] and serpenty == pie[1] :
+    # Check if serpent is same place as the pie
+    if serpentx == pie[ 0 ] and serpenty == pie[ 1 ] :
         pie = [ random.randint( 1 , 19 ) , random.randint( 1 , 14 ) ]
 
-    head=[serpentx,serpenty]
-    serpent[0]=head
+    head = [ serpentx , serpenty ]
+    serpent[ 0 ] = head
 
 
 # Change serpent direction to parameters

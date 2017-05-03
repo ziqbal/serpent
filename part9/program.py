@@ -14,7 +14,7 @@ direction = [ 1 , 0 ]
 # Initialize display module
 pygame.display.init( )
 
-# Create display screen with given resolution
+# Create display screen
 screen = pygame.display.set_mode( ( 800 , 600 ) )
 
 # The game loop
@@ -73,8 +73,8 @@ def loop( ) :
 # Draw everything onto the screen
 def draw( ) :
     for part in serpent :
-        pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( part[0] * 40 , part[1] * 40 ) , 20 , 0 )
-    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[0] * 40 , pie[1] * 40 ) , 20 , 0 )
+        pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( part[ 0 ] * 40 , part[ 1 ] * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[ 0 ] * 40 , pie[ 1 ] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :
@@ -82,8 +82,8 @@ def update( ) :
 
     head = serpent[ 0 ]
 
-    serpentx = head[ 0 ] + direction[0]
-    serpenty = head[ 1 ] + direction[1]
+    serpentx = head[ 0 ] + direction[ 0 ]
+    serpenty = head[ 1 ] + direction[ 1 ]
 
     # Clamp serpent
     if serpentx > 19 : serpentx = 19
