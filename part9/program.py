@@ -72,9 +72,11 @@ def loop( ) :
 
 # Draw everything onto the screen
 def draw( ) :
-    for part in serpent :
-        pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( part[ 0 ] * 40 , part[ 1 ] * 40 ) , 20 , 0 )
     pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[ 0 ] * 40 , pie[ 1 ] * 40 ) , 20 , 0 )
+
+    for part in serpent :
+
+        pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( part[ 0 ] * 40 , part[ 1 ] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :

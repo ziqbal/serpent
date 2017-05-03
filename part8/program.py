@@ -72,8 +72,8 @@ def loop( ) :
 
 # Draw everything onto the screen
 def draw( ) :
-    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpent[ 0 ][ 0 ] * 40 , serpent[ 0 ][ 1 ] * 40 ) , 20 , 0 )
     pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[ 0 ] * 40 , pie[ 1 ] * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpent[ 0 ][ 0 ] * 40 , serpent[ 0 ][ 1 ] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :
