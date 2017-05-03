@@ -6,17 +6,15 @@ import random
 
 # Coordinates for serpent and pie
 serpent = [ [ 1 , 1 ] ]
-piex = 19
-piey = 14
+pie = [ 19 , 14 ]
 
 # Serpent direction
-dirx = 1
-diry = 0
+direction = [ 1 , 0 ]
 
 # Initialize display module
 pygame.display.init( )
 
-# Create display screen with given resolution
+# Create display screen
 screen = pygame.display.set_mode( ( 800 , 600 ) )
 
 # The game loop
@@ -74,29 +72,27 @@ def loop( ) :
 
 # Draw everything onto the screen
 def draw( ) :
-    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpent[0][0] * 40 , serpent[0][1] * 40 ) , 20 , 0 )
-    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( piex * 40 , piey * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpentx * 40 , serpentx * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[0] * 40 , pie[1] * 40 ) , 20 , 0 )
 
 # Update state
 def update( ) :
-    global serpent
-    global piex , piey
+    global serpent , pie
 
     head = serpent[0]
 
-    serpentx = head[0] + dirx
-    serpenty = head[1] + diry
+    serpentx = head[0] + direction[0]
+    serpenty = head[1] + direction[1]
 
     # Clamp serpent
     if serpentx > 19 : serpentx = 19
-    if serpentx < 1 : serpenty = 1
+    if serpentx < 1 : serpentx = 1
     if serpenty > 14 : serpenty = 14
     if serpenty < 1 : serpenty = 1
 
     # Check if serpent is same place as teh pie
-    if serpentx == piex and serpenty == piey :
-        piex = random.randint( 1 , 19 )
-        piey = random.randint( 1 , 14 )
+    if serpentx == pie[0] and serpenty == pie[1] :
+        pie = [ random.randint( 1 , 19 ) , random.randint( 1 , 14 ) ]
 
     head=[serpentx,serpenty]
     serpent[0]=head
@@ -104,9 +100,8 @@ def update( ) :
 
 # Change serpent direction to parameters
 def changedirection( dx , dy ) :
-    global dirx , diry
-    dirx = dx
-    diry = dy
+    global direction
+    direction = [ dx , dy ]
 
 # Run main loop
 loop( )

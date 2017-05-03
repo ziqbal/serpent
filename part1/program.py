@@ -4,7 +4,7 @@ import pygame
 # Initialize display module
 pygame.display.init( )
 
-# Create display screen 
+# Create display screen
 screen = pygame.display.set_mode( ( 800 , 600 ) )
 
 # The game loop

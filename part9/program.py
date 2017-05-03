@@ -9,8 +9,7 @@ serpent = [ [ 1 , 1 ] ]
 pie = [ 19 , 14 ]
 
 # Serpent direction
-dirx = 1
-diry = 0
+direction = [ 1 , 0 ]
 
 # Initialize display module
 pygame.display.init( )
@@ -83,8 +82,8 @@ def update( ) :
 
     head = serpent[ 0 ]
 
-    serpentx = head[ 0 ] + dirx
-    serpenty = head[ 1 ] + diry
+    serpentx = head[ 0 ] + direction[0]
+    serpenty = head[ 1 ] + direction[1]
 
     # Clamp serpent
     if serpentx > 19 : serpentx = 19
@@ -104,9 +103,8 @@ def update( ) :
 
 # Change serpent direction to parameters
 def changedirection( dx , dy ) :
-    global dirx , diry
-    dirx = dx
-    diry = dy
+    global direction
+    direction = [ dx , dy ]
 
 # Run main loop
 loop( )
