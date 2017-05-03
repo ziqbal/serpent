@@ -38,7 +38,7 @@ def loop( ) :
         update( )
 
         # Slow down game
-        clock.tick( 3 )
+        clock.tick( 5 )
 
         # Handle keyboard events
         pygame.event.pump( )
@@ -72,7 +72,7 @@ def loop( ) :
 
 # Draw everything onto the screen
 def draw( ) :
-    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpentx * 40 , serpentx * 40 ) , 20 , 0 )
+    pygame.draw.circle( screen , ( 89 , 152 , 47 ) , ( serpent[ 0 ][ 0 ] * 40 , serpent[ 0 ][ 1 ] * 40 ) , 20 , 0 )
     pygame.draw.circle( screen , ( 227 , 11 , 93 ) , ( pie[ 0 ] * 40 , pie[ 1 ] * 40 ) , 20 , 0 )
 
 # Update state

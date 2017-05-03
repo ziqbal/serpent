@@ -38,7 +38,7 @@ def loop( ) :
         update( )
 
         # Slow down game
-        clock.tick( 3 )
+        clock.tick( 5 )
 
         # Handle keyboard events
         pygame.event.pump( )
